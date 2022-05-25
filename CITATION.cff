@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this data, please cite it as below."
+authors:
+- family-names: "Zhizhin"
+  given-names: "Leonid"
+- family-names: "Knorre"
+  given-names: "Alexey"
+  orcid: "0000-0002-5079-9573"
+- family-names: "Kuchakov"
+  given-names: "Ruslan"
+  orcid: "0000-0001-5757-410X"
+- family-names: "Skougarevskiy"
+  given-names: "Dmitriy"
+  orcid: "0000-0002-4022-6210"
+title: "Data for `Cost of Crime in Russia: compensating variation approach'"
+date-released: 2022-05-31
+year: 2022
+url: "https://github.com/irlcode/cost_of_crime"
+preferred-citation:
+  type: unpublished
+  authors:
+  - family-names: "Zhizhin"
+    given-names: "Leonid"
+    orcid: "https://orcid.org/0000-0001-9903-9623"
+  - family-names: "Knorre"
+    given-names: "Alexey"
+  - family-names: "Kuchakov"
+    given-names: "Ruslan"
+    orcid: "0000-0001-5757-410X"
+  - family-names: "Skougarevskiy"
+    given-names: "Dmitriy"
+    orcid: "0000-0002-4022-6210"
+  url: "https://github.com/irlcode/cost_of_crime"
+  title: "Data for `Cost of Crime in Russia: compensating variation approach'"
+  year: 2022
