@@ -16,7 +16,8 @@ user:~$ echo 'CRIMECOST_PATH="path_to_cloned_repository"' >> ~/.Renviron
 | ├ rcvs2021_crimecost_imputed.rdata # RCVS-21 data after multiple imputation
 | ├ rcvs2021_raking_fit.rdata # RCVS-21 after raking weights
 | ├ kouzh_2020_data.rdata # 2020 round of the Comprehensive Monitoring of Living Conditions household survey
-| └ gdp_deflator.csv # GDP deflator data
+| ├ gdp_deflator.csv # GDP deflator data
+| └ yearly_total_crime_cost.rds # Yearly figures of official crime and calculated total costs
 |
 ├─code/
 | └─helper_functions/
