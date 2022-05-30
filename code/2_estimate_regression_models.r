@@ -19,6 +19,9 @@ set.seed(42)
 # Restart R session for the changes to make effect
 setwd(Sys.getenv('CRIMECOST_PATH'))
 
+# Create directory /media if not exist
+dir.create("media", showWarnings = FALSE)
+
 # Load the prepared RCVS-2021 data
 load("data/rcvs2021_crimecost.rdata")
 
