@@ -15,6 +15,9 @@ options(scipen = 999)
 # Restart R session for the changes to make effect
 setwd(Sys.getenv('CRIMECOST_PATH'))
 
+# Create directory /tables if not exist
+dir.create("tables", showWarnings = FALSE)
+
 # Load KOUZh-2020 data prepared by 0a_prepare_kouzh_data.r
 load("data/kouzh_2020_data.rdata")
 
