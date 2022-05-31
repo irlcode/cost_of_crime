@@ -23,6 +23,10 @@ data/rcvs2021_crimecost.rdata:
 	# Do nothing, the file is created outside the repo
 	noop
 
+# Install dependencies
+install_dependencies:
+	Rscript code/helper_functions/install_dependencies.r 
+	
 # Compute raking weights
 data/rcvs2021_raking_fit.rdata: data/rcvs2021_crimecost.rdata
 	Rscript code/1_rcvs_vs_domestic_household_survey.r
@@ -48,7 +52,7 @@ paper: data/rcvs2021_crimecost.rdata
 	Rscript code/4_extract_official_crime_counts.r
 
 # Paper
-paper: data/rcvs2021_crimecost.rdata costofcrime_estimates_19aug21.csv DEPENDENCIES
+paper: install_dependencies data/rcvs2021_crimecost.rdata costofcrime_estimates_19aug21.csv DEPENDENCIES
 	Rscript code/helper_functions/install_dependencies.r 
 	Rscript code/1_rcvs_vs_domestic_household_survey.r
 	Rscript code/2_estimate_regression_models.r
