@@ -8,11 +8,6 @@ code/helper_functions/install_dependencies.r:
 	# Do nothing, the file is created outside the repo
 	noop
 
-# GDP deflator data
-data/gdp_deflator.csv:
-	# Do nothing, the file is created outside the repo
-	noop
-
 # Data from the 2020 round of the Comprehensive Monitoring of Living Conditions household survey
 data/kouzh_2020_data.rdata:
 	# Do nothing, the file is created outside the repo
