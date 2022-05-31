@@ -81,7 +81,7 @@ rcvs2021_crimecost_imputed <- transform(rcvs2021_crimecost_imputed, age_sq = age
 rcvs2021_crimecost_imputed <- transform(rcvs2021_crimecost_imputed, household_size_sq = household_size^2)
 
 # Save point
-#save(rcvs2021_crimecost_imputed, file = "data/rcvs2021_crimecost_imputed.rdata", compress = "gzip")
+save(rcvs2021_crimecost_imputed, file = "data/rcvs2021_crimecost_imputed.rdata", compress = "gzip")
 
 #####################################################
 ## Assess the quality of imputation

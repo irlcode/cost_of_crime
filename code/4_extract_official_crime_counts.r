@@ -27,7 +27,7 @@ official_crime_costs_plot <- ggplot(data = estimates,
   expand_limits(y = 0) +
   facet_wrap(name~.,ncol = 1,strip.position = "top",scales = 'free_y')
 
-cairo_pdf("official_crime_costs.pdf", height = 10, width = 15)
+cairo_pdf("media/official_crime_costs.pdf", height = 10, width = 15)
 official_crime_costs_plot
 dev.off()
 
