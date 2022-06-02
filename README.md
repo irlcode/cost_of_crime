@@ -1,4 +1,4 @@
-# Data for `Cost of Crime in Russia: compensating variation approach'
+# Data for Cost of crime in Russia: a compensating variation approach
 
 ## Installation
 
