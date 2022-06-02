@@ -19,6 +19,9 @@ set.seed(42)
 # Restart R session for the changes to make effect
 setwd(Sys.getenv('CRIMECOST_PATH'))
 
+# Create directory /media if not exist
+dir.create("media", showWarnings = FALSE)
+
 # Load the prepared RCVS-2021 data
 load("data/rcvs2021_crimecost.rdata")
 
@@ -390,6 +393,46 @@ lifesatisfaction_income_deriv_plot <- ggplot(aes( x = mean_household_income, y =
 
 cairo_pdf("media/lifesatisfaction_income_deriv_plot.pdf", height = 10, width = 15)
 lifesatisfaction_income_deriv_plot
+dev.off()
+
+
+# EN version
+
+# Plot the first derivative of spline of income on life satisfaction 
+lifesatisfaction_income_deriv_plot_en <- ggplot(aes( x = mean_household_income, y = (exp(income_deriv) - 1) ), data = income_crime_derivatives[model == "gam" & controls == "baselineregionfe" & victimization_vars == "victimized12m"]) +
+  geom_line(linetype = "solid", lwd = 2) +
+  geom_ribbon(aes(ymin = (exp(income_lower) - 1), ymax = (exp(income_upper) - 1)), alpha = .3, colour = NA, fill = "grey70") +
+  # Zero line
+  #geom_hline(aes(yintercept = 0), color = "#ED0000FF", linetype = "dotted") +
+  # OLS coefficient
+  geom_hline(aes(yintercept = (exp(income_crime_derivatives[model == "ols" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & income_vars == "mean_household_income"]$income_deriv[1]) - 1)), color = "red", linetype = "dashed") +
+  geom_ribbon(aes(ymin = (exp(income_crime_derivatives[model == "ols" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & income_vars == "mean_household_income"]$income_lower[1]) - 1), ymax = (exp(income_crime_derivatives[model == "ols" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & income_vars == "mean_household_income"]$income_upper[1]) - 1)), alpha = .3, colour = NA, fill = "red") +
+  # For mean income line
+  geom_vline(aes(xintercept = 24), color = "#ED0000FF", linetype = "dotted") +
+  # Annotate GAM estimate
+  annotate("text",
+           x = 24+10,
+           y = exp(income_crime_derivatives[model == "gam" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1 + 0.003,
+           label = paste0("GAM estimate for a household\nwith the average income: ", round(100*(exp(income_crime_derivatives[model == "gam" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1), 2), "%"),
+           hjust = 0, size = 6) +
+  annotate("segment", 
+           x = 24+10,
+           xend = 24, 
+           y = exp(income_crime_derivatives[model == "gam" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1 + 0.003,
+           yend = exp(income_crime_derivatives[model == "gam" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1, 
+           arrow = arrow(), color = "black") +
+  # Annotate OLS estimate
+  annotate("text",
+           x = 1,
+           y = exp(income_crime_derivatives[model == "ols" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1 + 0.002,
+           label = paste0("OLS estimate: ", round(100*(exp(income_crime_derivatives[model == "ols" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1), 2), "%"),
+           hjust = 0, size = 6) +
+  scale_y_continuous(name = "% change in life satisfaction after 1 thou. roubles increase\nin monthly per capita household income", labels = scales::percent) +
+  scale_x_continuous(name = "Monthly per capita household income, thou. roubles", breaks = pretty_breaks(n = 15), limits = c(1, 152), expand = c(0, 0)) +
+  theme_minimal() + theme(text = element_text(size = 20))
+
+cairo_pdf("media/lifesatisfaction_income_deriv_plot_en.pdf", height = 10, width = 15)
+lifesatisfaction_income_deriv_plot_en
 dev.off()
 
 #####################################################

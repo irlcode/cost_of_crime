@@ -81,7 +81,7 @@ rcvs2021_crimecost_imputed <- transform(rcvs2021_crimecost_imputed, age_sq = age
 rcvs2021_crimecost_imputed <- transform(rcvs2021_crimecost_imputed, household_size_sq = household_size^2)
 
 # Save point
-#save(rcvs2021_crimecost_imputed, file = "data/rcvs2021_crimecost_imputed.rdata", compress = "gzip")
+save(rcvs2021_crimecost_imputed, file = "data/rcvs2021_crimecost_imputed.rdata", compress = "gzip")
 
 #####################################################
 ## Assess the quality of imputation
@@ -113,6 +113,11 @@ median(income_overimputation$orig - income_overimputation$mean.overimputed, na.r
 # Plot the density comparison
 cairo_pdf("media/density_mean_income_actual_imputed.pdf", height = 10, width = 15)
 compare.density(rcvs2021_crimecost_imputed, var = "mean_household_income", main = "", xlab = "Ежемесячный доход на члена домохозяйства, тыс. руб.", ylab = "Плотность распределения", legend = F, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
+dev.off()
+
+# EN version
+cairo_pdf("media/density_mean_income_actual_imputed_en.pdf", height = 10, width = 15)
+compare.density(rcvs2021_crimecost_imputed, var = "mean_household_income", main = "", xlab = "Monthly per capita household income, thou. roubles", ylab = "Density distribution", legend = F, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
 dev.off()
 
 #####################################################
