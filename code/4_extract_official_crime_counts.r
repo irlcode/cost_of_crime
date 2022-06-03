@@ -50,7 +50,7 @@ official_crime_costs_plot_en <- ggplot(data = estimates,
   scale_x_date(date_breaks = "1 year",minor_breaks = NULL,expand = c(0,0),
                labels=date_format("%Y"),
                limits = as.Date(c('2015-12-01','2020-02-01')))+
-  labs(x = NULL,y = "Yearly total cost of crime, billion roubles")+
+  labs(x = NULL,y = "Yearly total cost of crime, bln rubles")+
   theme(legend.position = "none",panel.grid.minor = element_blank()) +
   expand_limits(y = 0) +
   facet_wrap(name_en~.,ncol = 1,strip.position = "top",scales = 'free_y')

@@ -427,8 +427,8 @@ lifesatisfaction_income_deriv_plot_en <- ggplot(aes( x = mean_household_income, 
            y = exp(income_crime_derivatives[model == "ols" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1 + 0.002,
            label = paste0("OLS estimate: ", round(100*(exp(income_crime_derivatives[model == "ols" & controls == "baselineregionfe" & victimization_vars == "victimized12m" & mean_household_income == 24 & income_vars == "mean_household_income"]$income_deriv) - 1), 2), "%"),
            hjust = 0, size = 6) +
-  scale_y_continuous(name = "% change in life satisfaction after 1 thou. roubles increase\nin monthly per capita household income", labels = scales::percent) +
-  scale_x_continuous(name = "Monthly per capita household income, thou. roubles", breaks = pretty_breaks(n = 15), limits = c(1, 152), expand = c(0, 0)) +
+  scale_y_continuous(name = "% change in life satisfaction after 1 thou. rubles increase\nin monthly per capita household income", labels = scales::percent) +
+  scale_x_continuous(name = "Monthly per capita household income, thou. rubles", breaks = pretty_breaks(n = 15), limits = c(1, 152), expand = c(0, 0)) +
   theme_minimal() + theme(text = element_text(size = 20))
 
 cairo_pdf("media/lifesatisfaction_income_deriv_plot_en.pdf", height = 10, width = 15)

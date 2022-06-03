@@ -117,7 +117,7 @@ dev.off()
 
 # EN version
 cairo_pdf("media/density_mean_income_actual_imputed_en.pdf", height = 10, width = 15)
-compare.density(rcvs2021_crimecost_imputed, var = "mean_household_income", main = "", xlab = "Monthly per capita household income, thou. roubles", ylab = "Density distribution", legend = F, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
+compare.density(rcvs2021_crimecost_imputed, var = "mean_household_income", main = "", xlab = "Monthly per capita household income, thou. rubles", ylab = "Density distribution", legend = F, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
 dev.off()
 
 #####################################################
