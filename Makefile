@@ -31,7 +31,7 @@ tables/survey_summary_stat.tex: data/rcvs2021_crimecost.rdata
 	
 # Fit the regression models
 estimates/costofcrime_estimates_19aug21.csv: data/rcvs2021_crimecost.rdata data/rcvs2021_raking_fit.rdata
-	Rscript code/2_estimate_regression_models.r
+	$(RUN) code/2_estimate_regression_models.r
 
 # Perform multiple imputation
 data/rcvs2021_crimecost_imputed.rdata: data/rcvs2021_crimecost.rdata
