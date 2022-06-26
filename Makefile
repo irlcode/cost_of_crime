@@ -1,4 +1,4 @@
-# Alias for running docekr image
+# Alias for running docker image
 RUN = docker run --rm -v $(PWD):/cost_of_crime:Z -u=$(shell id -u) cost_of_crime_image Rscript
 
 # List of R dependencies for the project
@@ -57,7 +57,6 @@ media/lifesatisfaction_income_deriv_plot.pdf: data/rcvs2021_crimecost.rdata data
 media/lifesatisfaction_income_deriv_plot_en.pdf: data/rcvs2021_crimecost.rdata data/rcvs2021_raking_fit.rdata
 	$(RUN) code/2_estimate_regression_models.r
 
-
 # Perform multiple imputation
 data/rcvs2021_crimecost_imputed.rdata: data/rcvs2021_crimecost.rdata data/rcvs2021_raking_fit.rdata
 	$(RUN) code/3_multiple_imputation_regressions.r
@@ -68,7 +67,6 @@ media/density_mean_income_actual_imputed.pdf: data/rcvs2021_crimecost.rdata data
 media/density_mean_income_actual_imputed_en.pdf: data/rcvs2021_crimecost.rdata data/rcvs2021_raking_fit.rdata
 	$(RUN) code/3_multiple_imputation_regressions.r
 
-	
 # Create a chart with official crime statistics and estimates
 media/official_crime_costs.pdf: data/rcvs2021_crimecost.rdata
 	$(RUN) code/4_extract_official_crime_counts.r
