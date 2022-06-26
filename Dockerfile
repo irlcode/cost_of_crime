@@ -1,7 +1,7 @@
 # Base image
 FROM ubuntu:20.04
 
-# Mentainer tag
+# Maintainer tag
 LABEL org.opencontainers.image.authors="ipp@eu.spb.ru"
 
 # Disable interactions with shell, always accept default option
