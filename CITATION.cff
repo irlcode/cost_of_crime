@@ -3,6 +3,7 @@ message: "If you use this data, please cite it as below."
 authors:
 - family-names: "Zhizhin"
   given-names: "Leonid"
+  orcid: "0000-0003-1289-9941"
 - family-names: "Knorre"
   given-names: "Alexey"
   orcid: "0000-0002-5079-9573"
@@ -21,7 +22,7 @@ preferred-citation:
   authors:
   - family-names: "Zhizhin"
     given-names: "Leonid"
-    orcid: "https://orcid.org/0000-0001-9903-9623"
+    orcid: "0000-0003-1289-9941"
   - family-names: "Knorre"
     given-names: "Alexey"
   - family-names: "Kuchakov"
