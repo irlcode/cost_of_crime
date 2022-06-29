@@ -32,19 +32,19 @@ rcvs2021_crimecost[, region := as.factor(as.numeric(region))]
 # Life satisfaction and income to log
 vars_to_log <- c("life_satisfaction", "mean_household_income", "locality_avg_income", "locality_population")
 for (var in vars_to_log) {
-    rcvs2021_crimecost[, paste0("ln", var) := log(get(var))]
+	rcvs2021_crimecost[, paste0("ln", var) := log(get(var))]
 }
 
 # Squares of certain variables
 vars_to_square <- c("age", "household_size", "locality_population", "locality_avg_income")
 for (var in vars_to_square) {
-    rcvs2021_crimecost[, paste0(var, "_sq") := get(var)^2]
+	rcvs2021_crimecost[, paste0(var, "_sq") := get(var)^2]
 }
 
 ## Crime type to dummies for those victimized in the last 12 months
 temp <- dummy_cols(
-    rcvs2021_crimecost[, c("crimetype", "victimized12m"), with = FALSE],
-    remove_first_dummy = FALSE, remove_most_frequent_dummy = FALSE, ignore_na = TRUE, remove_selected_columns = TRUE
+	rcvs2021_crimecost[, c("crimetype", "victimized12m"), with = FALSE],
+	remove_first_dummy = FALSE, remove_most_frequent_dummy = FALSE, ignore_na = TRUE, remove_selected_columns = TRUE
 )
 names(temp) <- tolower(gsub(" ", "", gsub("crimetype_", "", names(temp))))
 names(temp) <- gsub("wirefraud/cybercrime", "remote", names(temp), fixed = TRUE)
