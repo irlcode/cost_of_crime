@@ -8,7 +8,7 @@ Then you need to install [docker](https://docs.docker.com/get-docker/) and build
 $ docker build --rm -t "cost_of_crime_image" .
 ```
 
-This image is then used by an annotated we provide `Makefile` that documents the data analysis in our paper.
+This image is then used by an annotated `Makefile` that documents the data analysis in our paper.
 
 To build the paper run `make paper` when in the repository folder.
 

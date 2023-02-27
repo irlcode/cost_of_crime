@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV CRIMECOST_PATH .
 
 # Install packages
-RUN apt-get update && apt-get upgrade && apt-get update
+RUN apt-get update && apt-get -y upgrade && apt-get update
 RUN apt-get install -y r-base r-base-dev cmake locales
 
 # Set locale, unicode is required for plots with cyrillic lables
