@@ -1,4 +1,6 @@
-# Data for Cost of crime in Russia: a compensating variation approach
+# Data and Code For `Cost of crime in Russia: A compensating variation approach`
+
+This is the code and data to replicate the analysis in [Knorre, Kuchakov, Skougarevskiy, and Zhizhin (2023)](https://ideas.repec.org/a/ris/apltrx/0466.html).
 
 ## Installation
 
